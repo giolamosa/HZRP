@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MediaFire Download · HZ.rar</title>
+  <title>MediaFire Download · HZ.rar (2 buttons)</title>
   <style>
     * {
       margin: 0;
@@ -23,7 +23,7 @@
     }
 
     .card {
-      max-width: 640px;
+      max-width: 780px;
       width: 100%;
       background: rgba(18, 30, 45, 0.85);
       backdrop-filter: blur(12px);
@@ -32,7 +32,7 @@
       border-radius: 2.5rem;
       padding: 2.5rem 2rem 2.75rem;
       box-shadow: 0 30px 50px -20px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.03) inset;
-      transition: transform 0.25s ease, border-color 0.25s ease;
+      transition: border-color 0.25s ease;
       text-align: center;
     }
 
@@ -67,11 +67,41 @@
       padding-bottom: 1.2rem;
     }
 
+    .link-section {
+      margin-bottom: 1.8rem;
+      text-align: left;
+    }
+
+    .link-section:last-of-type {
+      margin-bottom: 2rem;
+    }
+
+    .link-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #6699cc;
+      margin-bottom: 0.4rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .link-label .badge {
+      background: rgba(60, 130, 210, 0.25);
+      padding: 0.15rem 0.6rem;
+      border-radius: 12px;
+      font-size: 0.65rem;
+      color: #8ab6e6;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+
     .link-box {
       background: rgba(8, 18, 30, 0.7);
       border-radius: 1.4rem;
       padding: 1rem 1.5rem;
-      margin-bottom: 1.8rem;
       border: 1px solid rgba(60, 130, 210, 0.3);
       transition: border-color 0.2s;
       word-break: break-all;
@@ -81,18 +111,9 @@
       border-color: rgba(90, 170, 255, 0.7);
     }
 
-    .link-label {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: #6699cc;
-      margin-bottom: 0.4rem;
-      font-weight: 500;
-    }
-
     .url-text {
       font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
-      font-size: 0.95rem;
+      font-size: 0.85rem;
       color: #b8d9ff;
       background: transparent;
       border: none;
@@ -101,48 +122,79 @@
       margin: 0;
       word-break: break-all;
       line-height: 1.5;
+      cursor: pointer;
+    }
+
+    .url-text:hover {
+      color: #d0e6ff;
+    }
+
+    .buttons-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 0.5rem;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 0.65rem;
-      background: linear-gradient(135deg, #0066ff, #0099ff);
-      color: #ffffff;
+      gap: 0.6rem;
       font-weight: 600;
-      font-size: 1.15rem;
-      padding: 1rem 2.2rem;
+      font-size: 1rem;
+      padding: 0.9rem 1.8rem;
       border-radius: 3rem;
       text-decoration: none;
       border: none;
       cursor: pointer;
       transition: all 0.2s ease;
-      box-shadow: 0 12px 24px -8px rgba(0, 110, 255, 0.5);
-      width: 100%;
+      flex: 1 1 220px;
       letter-spacing: 0.01em;
+      white-space: nowrap;
     }
 
-    .btn:hover {
+    .btn svg {
+      width: 1.2rem;
+      height: 1.2rem;
+      fill: currentColor;
+      flex-shrink: 0;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #0066ff, #0099ff);
+      color: #ffffff;
+      box-shadow: 0 12px 24px -8px rgba(0, 110, 255, 0.5);
+    }
+
+    .btn-primary:hover {
       background: linear-gradient(135deg, #1a7aff, #00aaff);
       box-shadow: 0 18px 30px -8px rgba(0, 140, 255, 0.7);
       transform: translateY(-2px);
     }
 
-    .btn:active {
-      transform: translateY(1px);
-      box-shadow: 0 6px 14px -4px rgba(0, 110, 255, 0.6);
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.08);
+      color: #b8d9ff;
+      border: 1px solid rgba(110, 170, 240, 0.35);
+      box-shadow: 0 8px 16px -8px rgba(0, 0, 0, 0.6);
     }
 
-    .btn svg {
-      width: 1.4rem;
-      height: 1.4rem;
-      fill: currentColor;
-      flex-shrink: 0;
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(140, 200, 255, 0.7);
+      color: #e0efff;
+      transform: translateY(-2px);
+      box-shadow: 0 14px 24px -8px rgba(0, 100, 200, 0.5);
+    }
+
+    .btn:active {
+      transform: translateY(1px);
     }
 
     .note {
-      margin-top: 1.6rem;
+      margin-top: 1.8rem;
       font-size: 0.8rem;
       color: #5d7e9e;
       display: flex;
@@ -160,7 +212,7 @@
       color: #8ab6e6;
     }
 
-    @media (max-width: 480px) {
+    @media (max-width: 600px) {
       .card {
         padding: 1.8rem 1.2rem 2rem;
         border-radius: 2rem;
@@ -169,11 +221,12 @@
         font-size: 1.7rem;
       }
       .btn {
-        font-size: 1rem;
-        padding: 0.9rem 1.2rem;
+        font-size: 0.9rem;
+        padding: 0.8rem 1.2rem;
+        flex: 1 1 100%;
       }
       .url-text {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
       }
     }
   </style>
@@ -182,39 +235,73 @@
   <div class="card">
     <div class="icon">📦</div>
     <h1>HZ.rar</h1>
-    <div class="subtitle">MediaFire file download</div>
+    <div class="subtitle">MediaFire file download · two options</div>
 
-    <div class="link-box">
-      <div class="link-label">Direct link</div>
-      <div class="url-text" id="mediafireUrl">https://www.mediafire.com/file/ycautol4l8hj4e7/HZ.rar/file</div>
+    <!-- Original MediaFire page link -->
+    <div class="link-section">
+      <div class="link-label">
+        🌐 MediaFire Page
+        <span class="badge">original link</span>
+      </div>
+      <div class="link-box">
+        <div class="url-text" id="mediafirePageUrl">https://www.mediafire.com/file/ycautol4l8hj4e7/HZ.rar/file</div>
+      </div>
     </div>
 
-    <a
-      href="https://www.mediafire.com/file/ycautol4l8hj4e7/HZ.rar/file"
-      class="btn"
-      target="_blank"
-      rel="noopener noreferrer"
-      id="downloadBtn"
-    >
-      <svg viewBox="0 0 24 24" width="24" height="24">
-        <path d="M12 16l-5-5h3V4h4v7h3l-5 5zM5 18h14v2H5z"/>
-      </svg>
-      Download from MediaFire
-    </a>
+    <!-- Direct download link (long) -->
+    <div class="link-section">
+      <div class="link-label">
+        ⚡ Direct Download
+        <span class="badge">direct file</span>
+      </div>
+      <div class="link-box">
+        <div class="url-text" id="directDownloadUrl">https://download1075.mediafire.com/rlvis7luuvpgaGe1KJUnEPXKGcht66-wVzqZOByfbqPn8XCoOcDxqR2BjT8pRCpt7xmPkSidM2yp-zUfqRb417S5Spvt5UjelsuOipQjHIdJGOOo48KctDeWtIekeSLrAbCryN2pyzYcFgn_O1MAyqKFk56_4tSlBxjvPzUtGrHY/ycautol4l8hj4e7/HZ.rar</div>
+      </div>
+    </div>
+
+    <!-- Two buttons -->
+    <div class="buttons-row">
+      <a
+        href="https://www.mediafire.com/file/ycautol4l8hj4e7/HZ.rar/file"
+        class="btn btn-secondary"
+        target="_blank"
+        rel="noopener noreferrer"
+        id="btnPage"
+      >
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/>
+        </svg>
+        Open MediaFire Page
+      </a>
+
+      <a
+        href="https://download1075.mediafire.com/rlvis7luuvpgaGe1KJUnEPXKGcht66-wVzqZOByfbqPn8XCoOcDxqR2BjT8pRCpt7xmPkSidM2yp-zUfqRb417S5Spvt5UjelsuOipQjHIdJGOOo48KctDeWtIekeSLrAbCryN2pyzYcFgn_O1MAyqKFk56_4tSlBxjvPzUtGrHY/ycautol4l8hj4e7/HZ.rar"
+        class="btn btn-primary"
+        target="_blank"
+        rel="noopener noreferrer"
+        id="btnDirect"
+      >
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <path d="M12 16l-5-5h3V4h4v7h3l-5 5zM5 18h14v2H5z"/>
+        </svg>
+        Direct Download
+      </a>
+    </div>
 
     <div class="note">
       <span>🔒 Opens in new tab</span>
-      <span>⬇️ Direct file</span>
+      <span>📋 Double‑click URL to copy</span>
+      <span>⚡ Direct link may expire</span>
     </div>
   </div>
 
   <script>
-    // (Optional) small enhancement: copy the URL to clipboard on double‑click of the link text
-    const urlElement = document.getElementById('mediafireUrl');
-    if (urlElement) {
-      urlElement.style.cursor = 'pointer';
-      urlElement.title = 'Double‑click to copy';
-      urlElement.addEventListener('dblclick', function () {
+    // Double-click to copy for both URLs
+    function addCopyHandler(elementId) {
+      const el = document.getElementById(elementId);
+      if (!el) return;
+      el.title = 'Double‑click to copy';
+      el.addEventListener('dblclick', function () {
         const text = this.innerText.trim();
         navigator.clipboard.writeText(text).then(() => {
           const original = this.innerText;
@@ -230,6 +317,9 @@
         });
       });
     }
+
+    addCopyHandler('mediafirePageUrl');
+    addCopyHandler('directDownloadUrl');
   </script>
 </body>
 </html>
